@@ -19,18 +19,20 @@ let marksSum : number = 0;
 
 
 
-console.log(`OLD MARKS FOR THE STUDENTS`)
-for(let i:number = 0; i<marks.length; i++)
-    console.log(marks[i]);
+console.log(`OLD MARKS FOR THE STUDENTS:`)
+
+for (let i: number=0; i<students.length; i++ )
+{
+    console.log(`${students[i]}: ${marks[i]}`);
+}
 
 // Adding marks 10 to each student
-console.log("NEW MARKS FOR THE STUDENTS");
+console.log("UPDATED MARKS:");
 
 for (let i: number = 0; i < marks.length; i++) 
 {
 
     newMarks[i] = marks[i] +10;
-    console.log(`${newMarks[i]}`);
 
 }
 
@@ -39,9 +41,10 @@ for (let i: number = 0; i < marks.length; i++)
 for (let i: number =0; i<newMarks.length; i++)
 {
    marksSum = marksSum+ newMarks[i];
+   console.log(`${students[i]}: ${newMarks[i]}`);
    
 }
-console.log(`Total Marks = ${marksSum}`);
+console.log(`Total Marks : ${marksSum}`);
 
 let avgMarks = marksSum/newMarks.length;
 console.log(`The average mark is ${avgMarks}`);
