@@ -47,9 +47,9 @@ calculatePower(2,10);
 console.log("Test Case 2:");
 calculatePower(2.1,3);
 
-console.log("Test Case 2:");
+console.log("Test Case 3:");
 calculatePower(2,-2)
 
-console.log("Test Case 2:");
+console.log("Test Case 4:");
 calculatePower(2,0)
 

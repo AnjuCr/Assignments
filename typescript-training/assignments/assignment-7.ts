@@ -26,3 +26,5 @@
     console.log("The sentence with first character of each word in uppercase is: " + firstCapitalSent);
     console.log("The original sentence is: " + sentence);
 
+
+   
