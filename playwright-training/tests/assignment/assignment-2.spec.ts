@@ -40,49 +40,88 @@ await mobNumber.fill('8606880343');
 console.log('The mobile number entered sucsessfully');
     
 // 7.Select DOB (1-Feb-1991)
-const dob = await page.locator('input#dateOfBirthInput');
-// // dob.clear();
-// dob.fill('01 Feb 2026');
-// const dobMonthSelector = await page.locator('select.react-datepicker__month-select')
-// await dobMonthSelector.selectOption('1');
-// const dobYearSelector = await page.locator('select.react-datepicker__year-select');
-// await dobYearSelector.selectOption('1991');
-// console.log('Dob Entered successfully');
+await selectDOB(page, "1", "February", "1991");
 
-// 8.Search and Select Computer Science and English
-const subjects = await page.locator('div#react-select-2-placeholder');
-await subjects.clear();
-await subjects.fill('Computer Science');
-await subjects.press('Enter');
+// 8.Search and Select 'Computer Science' and 'English'
+const subjects: string[] = ["Computer Science", "English"];
+await selectSubjects(page, subjects);
 
 // 9.Select Hobbies as Sports and Reading
-await selectHobbies(page, ['hobbies-checkbox-1', 'hobbies-checkbox-3']);
+const hobbies: string[] = ["Sports", "Reading"];
+await selectHobbies(page, hobbies);
 
 // 10.Upload photo
-const uploadBtn = await page.locator('input#uploadPicture');
-uploadBtn.click();
-await uploadBtn.setInputFiles('C:\Users\ASUS VIVIBOOK\Desktop\Personal\Ramakalmedu');
-console.log('file uploaded successfully');
+const uploadPhoto = page.locator('input#uploadPicture');
+const filePath = "files/photo.png";
+await uploadPhoto.setInputFiles(filePath);
 
-// 11.Submit Details
-const submitBtn = await page.locator('button#submit');
-submitBtn.click();
-console.log('Details submitted successfukky');
+//11. Select state
+const stateListbox = page.locator('input#react-select-3-input');
+await stateListbox.fill('Rajasthan');
+await stateListbox.press('Enter');
+
+//12 .Submit Details
+const submitButton = page.locator('button#submit');
+submitButton.click();
+
 
 });
 
+async function selectDOB(page:any, date:string, month:string, year:string) {
+
+    // Launch the calender
+    const calender = await page.locator('input#dateOfBirthInput');
+    await calender.click();
+
+    // Select month and year
+    const monthSelector = await page.locator('select.react-datepicker__month-select');
+    await monthSelector.selectOption({ label: month });
+    const yearSelector = await page.locator('select.react-datepicker__year-select');
+    await yearSelector.selectOption({ label: year });
+
+    // Select date
+    const dateElement = page.locator(`//div[text()="${date}" and contains(@aria-label,"${month}")]`);
+    await dateElement.click();
+}
+
+
 async function selectGender(page:any, gender:string) {
     const genderOption = await page.locator(`input[value="${gender}"]`);
-    await genderOption.click();
+    await genderOption.check();
     console.log(`The ${gender}selected from radio options`);
 }
-async function selectHobbies(page:any,hobbies:string[]) {
-    for(const hobby of hobbies){
-        const hobbyOption = await page.locator(`input#${[]}`)
-        console.log(`The hobby "${hobby}" has been selected.`);
+
+
+async function selectHobbies(page: any, hobbies: string[]) {
+
+    for (let hobby of hobbies) {
+        const hobbyCheckbox = page.locator(`//label[text()="${hobby}"]/preceding-sibling::input`);
+        await hobbyCheckbox.check();
     }
-    
+
 }
+
+async function selectSubjects(page: any, subjects: string[]) {
+
+    //Locate the subject input box and click on it
+    const subjectContainer = page.locator('div[class *="subjects-auto-complete__input-container"]');
+    await subjectContainer.click();
+
+    //Locate the subject input internal container
+    const subjectInput = page.locator('input#subjectsInput');
+
+    //Select the subjects
+    for (let subject of subjects) {
+
+        //fill the subject
+        await subjectInput.fill(subject);
+
+        //press 'Enter' button
+        await subjectInput.press('Enter');
+
+    }
+}
+
 
 
 
