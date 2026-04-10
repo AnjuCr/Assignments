@@ -1,0 +1,18 @@
+{
+    "cookiesHeader"       :"div#CybotCookiebotDialogBodyContentTitle",
+    "cookiesContent"      :"//span[contains(text(), 'We may use cookies and similar technologies')]",
+    "cookieBot"           :"//div[@id='CybotCookiebotDialogHeaderLogosWrapper']//a[@rel='noopener nofollow']",
+    "allowAllBtn"         :"button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll",
+    "allowAllSelectionBtn": "button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection",
+    "denyBtn"             :"button#CybotCookiebotDialogBodyButtonDecline",
+    "necessaryLink"       : "//strong[text() = 'Necessary '] ",
+    "preferenceLink"      : "//strong[text() = 'Preferences ']",
+    "preferenceTogleBtn"  : "CybotCookiebotDialogBodyLevelButtonPreferences",
+    "statisticsLink"      : "//strong[text() = 'Statistics ']",
+    "statisticsTogleBtn"  : "input#CybotCookiebotDialogBodyLevelButtonStatistics",
+    "marketingLink"       : "//strong[text() = 'Marketing ']",
+    "marketingTogleBtn"   : "input#CybotCookiebotDialogBodyLevelButtonMarketing",
+    "showDetLint"         : "a#CybotCookiebotDialogBodyEdgeMoreDetailsLink",
+    "creatioImgIcon"      : "img#CybotCookiebotDialogPoweredbyImage"
+    
+}

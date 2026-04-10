@@ -1,0 +1,32 @@
+{
+    "app":{
+
+        "url":"https://accounts.creatio.com/login/alm",
+        "title":"Login | Creatio",
+        "username":"anjureghunadhan9@gmail.com",
+        "password":"Anju@Password123"
+
+    },
+
+    "db":{
+        "host":"localhost",
+        "port":330,
+        "user":"root",
+        "password":"password",
+        "database":"my_database"
+
+
+    },
+
+    "api":{
+
+        "endpoint":"https://www.api.example.com/",
+        "key":"your_api_key_here"
+
+    },
+    "ollama":{
+        "model":"ollama:model:latest",
+        "temperature":0.7
+    }
+
+}
