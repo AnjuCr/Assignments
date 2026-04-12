@@ -1,4 +1,5 @@
 import { Page, Locator, expect } from "@playwright/test";
+import { error } from "node:console";
 
 export class WebCommons {
     
@@ -80,7 +81,7 @@ export class WebCommons {
     }
     
     // Commn methd to type text into an element
-    async typeText (locator:string, text:string):Promise<void>{
+    async enterText (locator:string, text:string):Promise<void>{
         const element = await this.element(locator);
         await this.scrollToElement(locator);
         await this.clearText(locator);
@@ -143,23 +144,23 @@ export class WebCommons {
     }
 
     // Common method to check an element is  visible
-    async isElementVisible(locator:string): Promise <boolean>{
+    async isElementVisible(locator:string): Promise <void>{
        const element = await this.element(locator);
-       return await element.isVisible();
+       expect (element).toBeVisible();
 
     }
 
     // Common method to check an element is enbled
     async isElementEnabled(locator:string): Promise <boolean>{
        const element = await this.element(locator);
-       return await element.isEnabled();
+       expect (element).toBeEnabled();
        
     }
 
     // Common method to verify element is disappeared
-    async isElementDisappeared(locator:string): Promise <boolean>{
+    async isElementDisappeared(locator:string): Promise <void>{
        const element = await this.element(locator);
-       return await element.isHidden();
+       expect (element).toBeHidden();
        
     }
 
@@ -179,6 +180,20 @@ export class WebCommons {
     async takeScreenshot(path:string): Promise<void>{
         await this.page.screenshot({path});
     }
+    //  Common method to compare text values
+    async compareText(actual:string | null , expected:string ){
+        if(actual!=expected){
+            throw new Error(`Expected value is ${expected}, But found ${actual}`);
+        }
+   } 
 
+    //   Verify element having text value
+    async verifyElementText(locator:string, expectedText: string){
+        const element = await this.element(locator);
+        await expect(element).toHaveText(expectedText);
+    } 
 
+   
 }
+
+   

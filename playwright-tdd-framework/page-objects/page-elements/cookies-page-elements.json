@@ -6,6 +6,7 @@
     "allowAllSelectionBtn": "button#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection",
     "denyBtn"             :"button#CybotCookiebotDialogBodyButtonDecline",
     "necessaryLink"       : "//strong[text() = 'Necessary '] ",
+    "necessaryToggleBtn"  :"input#CybotCookiebotDialogBodyLevelButtonNecessary",
     "preferenceLink"      : "//strong[text() = 'Preferences ']",
     "preferenceTogleBtn"  : "CybotCookiebotDialogBodyLevelButtonPreferences",
     "statisticsLink"      : "//strong[text() = 'Statistics ']",

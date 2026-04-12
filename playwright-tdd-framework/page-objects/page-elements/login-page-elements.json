@@ -6,10 +6,11 @@
     "iconEye"           : "//mat-icon[@data-mat-icon-name='eye']",
     "loginBtn"          : "//span[text()=' LOG IN ']",
     "forgotPswdlnk"     : "a.forgot-password-link",
+    "forgotPswdConfirmationMsg": "//span[text() ='Almost done!']",
     "iconLinkdIn"       : "img.icon-LinkedIn",
     "iconGoogle"        : "img.icon-google",
     "loginQstn"         : "span.login-question",
-    "spanText"          : "//span[text() = ' SIGN UP ']",
+    "signUpLink"        : "//span[text() = ' SIGN UP ']",
     
     "chatIcon"          : "//div[@data-testid='launcher-minimize-icon']",
     "chatCloseBtn"      : "//div[@data-testid='close-button']"
